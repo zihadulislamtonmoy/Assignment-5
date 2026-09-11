@@ -11,7 +11,7 @@ const Banner = () => {
                   
                    <div className=' flex gap-3 '>
                     <button className=" btn bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-lg">Explore Technologies</button>
-                   <button className="btn-wide btn rounded-lg ">Learn More</button>
+                   <button className="btn btn-wide btn-outline rounded-lg ">Learn More</button>
                    </div>
  
             </div>
