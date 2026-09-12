@@ -9,11 +9,11 @@ const Nav = () => {
             </div>
 
             <div className='flex justify-between gap-7 items-center list-none font-medium'>
-                <li className='text-pink-600'>Home</li>
-                <li>Technologies</li>
-                <li>Projects</li>
-                <li>About</li>
-                <li>Contact</li>
+                <li className='text-pink-600'><a href=''>Home</a></li>
+                <li><a href=''>Technologies</a></li>
+                <li><a href=''>Projects</a></li>
+                <li><a href=''>About</a></li>
+                <li><a href=''>Contact</a></li>
             </div>
 
             <div>

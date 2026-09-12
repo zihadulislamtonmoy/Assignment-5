@@ -24,9 +24,9 @@ const Footer = () => {
         <div>
           <h4 className="text-sm font-bold text-gray-900 mb-3">Product</h4>
           <ul className="space-y-2 text-sm text-gray-500">
-            <li>Overview</li>
-            <li>Features</li>
-            <li>Solutions</li>
+            <li> <a href=''>Overview</a></li>
+            <li> <a href=''>Features</a></li>
+            <li> <a href=''>Solutions</a></li>
           </ul>
         </div>
 
@@ -51,12 +51,12 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
         <p>© 2026 DevStack. All rights reserved.</p>
         <div className="flex gap-4">
-          <li className="list-none"> Privacy Policy </li>
-          <li className="list-none"> Terms of Service </li>
+          <li className="list-none"> <a href=''>Privacy Policy</a>  </li>
+          <li className="list-none"> <a href=''>Terms of Service </a> </li>
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer;
+export default Footer; 
