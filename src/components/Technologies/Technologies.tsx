@@ -37,7 +37,6 @@ const Technologies = ({technologiesPromise}:TechnologiesProps) => {
         ))}
 
 
-
     </div>
 
 <div className="bg-white border border-gray-100 rounded-4xl shadow-sm p-10">

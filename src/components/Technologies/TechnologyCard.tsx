@@ -1,11 +1,15 @@
 import { FaStar } from "react-icons/fa";
 import type { Itechnology } from "../../types/TechnologiesType";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
   technology: Itechnology;
 }
 
 const TechnologyCard = ({ technology }: TechnologyCardProps) => {
+   const [isAdded , setIsAdded] = useState(false);
+
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
       
@@ -50,8 +54,18 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
       </div>
 
   
-      <button className="mt-5 w-full rounded-lg bg-[#17365D] py-2.5 text-sm font-semibold text-white hover:bg-[#102B4C]">
-        Add to Stack
+      <button
+      onClick={() => { setIsAdded(true); 
+        toast.success("Add to Stack successfully")
+      }}
+      
+       className="mt-5 w-full rounded-lg bg-[#17365D] py-2.5 text-sm font-semibold text-white hover:bg-[#102B4C] disabled:bg-gray-400"
+       disabled={isAdded} >
+        
+        {isAdded === true ? "Added" : "Add to Stack"} 
+
+       
+      
       </button>
 
     </div>
