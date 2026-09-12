@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Banner from "./components/Banner";
 import Nav from "./components/Nav";
 import Technologies from "./components/Technologies/Technologies";
@@ -6,6 +6,7 @@ import type { Itechnology } from "./types/TechnologiesType";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
+
 
 const technologiesFetch = async (): Promise<Itechnology[]> => {
   const res = await fetch("/data.json");
@@ -15,6 +16,7 @@ const technologiesFetch = async (): Promise<Itechnology[]> => {
 
 function App() {
   const technologiesPromise = technologiesFetch();
+   const [selectedTechnologies, setSelectedTechnology] = useState<Itechnology[]>([]);
 
   return (
     <>
@@ -22,7 +24,10 @@ function App() {
       <Nav />
       <Banner />
       <Suspense fallback={<h2>Loading...</h2>}>
-        <Technologies technologiesPromise={technologiesPromise} />
+        <Technologies technologiesPromise={technologiesPromise} 
+        selectedTechnologies={selectedTechnologies}
+        setSelectedTechnology={setSelectedTechnology}
+        />
       </Suspense>
       <Footer></Footer>
     </>
@@ -30,3 +35,4 @@ function App() {
 }
 
 export default App;
+

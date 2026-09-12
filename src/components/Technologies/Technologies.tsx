@@ -1,5 +1,5 @@
 import { use, useState } from "react";
-import React, {type Dispatch, type SetStateAction} from "react";
+import  {type Dispatch, type SetStateAction} from "react";
 import type { Itechnology } from "../../types/TechnologiesType";
 import TechnologyCard from "./TechnologyCard";
 import SelectedTechnologies from "./SelectedTechnologies";
@@ -49,7 +49,7 @@ const Technologies = ({technologiesPromise}:TechnologiesProps) => {
     </div>
 
     <SelectedTechnologies selectedTechnologies={selectedTechnologies}
-            setSelectedTechnology={setSelectedTechnology}> </SelectedTechnologies>
+            setSelectedTechnology={setSelectedTechnology} />
    </div>
 
     </section>
