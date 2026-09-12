@@ -1,13 +1,20 @@
-import { use } from "react";
+import { use, useState } from "react";
+import React, {type Dispatch, type SetStateAction} from "react";
 import type { Itechnology } from "../../types/TechnologiesType";
 import TechnologyCard from "./TechnologyCard";
+import SelectedTechnologies from "./SelectedTechnologies";
+
+
  
 interface TechnologiesProps {
-    technologiesPromise:Promise<Itechnology[]>
+    technologiesPromise:Promise<Itechnology[]>;
+      selectedTechnologies:Itechnology[];
+      setSelectedTechnology:Dispatch<SetStateAction<Itechnology[]>>;
 }
 
 const Technologies = ({technologiesPromise}:TechnologiesProps) => {
     const technologies = use(technologiesPromise);
+    const [selectedTechnologies, setSelectedTechnology] = useState<Itechnology[]>([]);
     return (
             <section className="px-6 py-10">
 
@@ -25,40 +32,25 @@ const Technologies = ({technologiesPromise}:TechnologiesProps) => {
         </p>
       </div>
 
-     
-     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 lg:grid-cols-4 items-start">
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:col-span-3">
+       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 lg:grid-cols-4 items-start">
+   
+              <div className="grid grid-cols-3 gap-5 sm:grid-cols-3 lg:col-span-3">
         
         {technologies.map((technology) => (
           <TechnologyCard
             key={technology.id}
             technology={technology}
+            selectedTechnologies={selectedTechnologies}
+            setSelectedTechnology={setSelectedTechnology}
           />
         ))}
 
 
     </div>
 
-<div className="bg-white border border-gray-100 rounded-4xl shadow-sm p-10">
-
-    <h2 className="text-4xl font-bold text-gray-900">
-        Your Stack
-    </h2>
-
-    <p className="mt-4 text-2xl text-gray-400 font-normal">
-        No technologies selected yet.
-    </p>
-
-    <div className="mt-8 h-60 border-2 border-dashed border-gray-200 rounded-[28px] flex items-center justify-center">
-        <p className="text-2xl text-gray-400">
-            Your stack is empty.
-        </p>
-    </div>
-
-</div>
-
-     </div>
-   
+    <SelectedTechnologies selectedTechnologies={selectedTechnologies}
+            setSelectedTechnology={setSelectedTechnology}> </SelectedTechnologies>
+   </div>
 
     </section>
     );
